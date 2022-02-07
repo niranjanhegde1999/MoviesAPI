@@ -79,7 +79,7 @@ namespace MoviesAPI.Data.Services
                     movie_id = _movie.movie_id,
                     pic_path = path
                 };
-                _context.Movie_galleries.Add(_movie_gallery);
+                _context.Movie_Galleries.Add(_movie_gallery);
                 _context.SaveChanges();
             }
 
@@ -114,8 +114,8 @@ namespace MoviesAPI.Data.Services
                     _context.SaveChanges();
                 }
 
-                var _movieImages = _context.Movie_galleries.Where(ma => ma.movie_id == movieId);
-                _context.Movie_galleries.RemoveRange(_movieImages);
+                var _movieImages = _context.Movie_Galleries.Where(ma => ma.movie_id == movieId);
+                _context.Movie_Galleries.RemoveRange(_movieImages);
                 _context.SaveChanges();
 
                 foreach (var path in movie.movie_image_paths)
@@ -125,7 +125,7 @@ namespace MoviesAPI.Data.Services
                         movie_id = _movie.movie_id,
                         pic_path = path
                     };
-                    _context.Movie_galleries.Add(_movie_gallery);
+                    _context.Movie_Galleries.Add(_movie_gallery);
                     _context.SaveChanges();
                 }
 

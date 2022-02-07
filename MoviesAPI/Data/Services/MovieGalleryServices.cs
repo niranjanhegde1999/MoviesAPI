@@ -18,7 +18,7 @@ namespace MoviesAPI.Data.Services
 
         public List<MovieGalleryWithMovieVM> GetAllMovieGalleries()
         {
-            var _movieGalleryWithMovieVMs =  _context.Movie_galleries.Select(movieGallery => new MovieGalleryWithMovieVM()
+            var _movieGalleryWithMovieVMs =  _context.Movie_Galleries.Select(movieGallery => new MovieGalleryWithMovieVM()
             {
                 pic_id = movieGallery.pic_id,
                 pic_path = movieGallery.pic_path,
@@ -31,7 +31,7 @@ namespace MoviesAPI.Data.Services
 
         public MovieGalleryWithMovieVM GetMovieGalleryById(int picId)
         {
-            var _movieGalleryWithMovieVM = _context.Movie_galleries.Where(a => a.pic_id == picId).Select(movieGallery => new MovieGalleryWithMovieVM()
+            var _movieGalleryWithMovieVM = _context.Movie_Galleries.Where(a => a.pic_id == picId).Select(movieGallery => new MovieGalleryWithMovieVM()
             {
                 pic_id = movieGallery.pic_id,
                 pic_path = movieGallery.pic_path,
@@ -50,7 +50,7 @@ namespace MoviesAPI.Data.Services
                 movie_id = movieGallery.movie_id
             };
 
-            _context.Movie_galleries.Add(_movieGallery);
+            _context.Movie_Galleries.Add(_movieGallery);
             _context.SaveChanges();
 
             return _movieGallery.pic_id;
@@ -58,7 +58,7 @@ namespace MoviesAPI.Data.Services
 
         public bool UpdateMovieGallery(int picId, MovieGalleryVM movieGallery)
         {
-            var _movieGallery = _context.Movie_galleries.FirstOrDefault(a => a.pic_id == picId);
+            var _movieGallery = _context.Movie_Galleries.FirstOrDefault(a => a.pic_id == picId);
 
             if (_movieGallery != null)
             {
@@ -75,11 +75,11 @@ namespace MoviesAPI.Data.Services
 
         public bool DeleteMovieGalleryById(int picId)
         {
-            var _movieGallery = _context.Movie_galleries.FirstOrDefault(a => a.pic_id == picId);
+            var _movieGallery = _context.Movie_Galleries.FirstOrDefault(a => a.pic_id == picId);
 
             if (_movieGallery != null)
             {
-                _context.Movie_galleries.Remove(_movieGallery);
+                _context.Movie_Galleries.Remove(_movieGallery);
                 _context.SaveChanges();
 
                 return true;
